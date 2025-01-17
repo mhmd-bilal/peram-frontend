@@ -19,18 +19,35 @@ import ProductCard from '../components/ProductCard'
 export default function Home() {
   const products = [
     {
-      image: 'path/to/image1.jpg',
+      image: '/image.png',
       name: 'Product 1',
-      startingPrice: '$10.00',
-      closingPrice: '$15.00',
+      startingPrice: '10.00',
+      closingPrice: '15.00',
+      subtitle:
+        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
     },
     {
-      image: 'path/to/image2.jpg',
-      name: 'Product 2',
-      startingPrice: '$20.00',
-      closingPrice: '$25.00',
-    },
-    // Add more products as needed
+      image: '/image.png',
+      name: 'Product 1',
+      startingPrice: '10.00',
+      closingPrice: '15.00',
+      subtitle:
+        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
+    },    {
+      image: '/image.png',
+      name: 'Product 1',
+      startingPrice: '10.00',
+      closingPrice: '15.00',
+      subtitle:
+        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
+    },    {
+      image: '/image.png',
+      name: 'Product 1',
+      startingPrice: '10.00',
+      closingPrice: '15.00',
+      subtitle:
+        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
+    },    // Add more products as needed
   ]
 
   return (
@@ -41,15 +58,14 @@ export default function Home() {
         className='select-none text-sm transition hover:scale-105'
         variant='secondary'
       >
-        🎉 v1.0.1
+        List, bid, and sell easily 🎉
       </Badge>
-      <h1 className='text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]'>
-        Next.js + shadcn Template
+      <h1 className='text-center text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]'>
+        Peram: Where sale meet transparency
       </h1>
       <p className='mx-auto max-w-[750px] text-pretty text-center text-lg text-muted-foreground sm:text-xl'>
-        Begin your project with built-in GitHub Actions, Husky for commits, and
-        Eslint/Prettier for code quality. Ready to kickstart your development
-        journey!
+        Bid, win, and save—explore a wide range of products at unbeatable prices
+        while enjoying a transparent auction experience.{' '}
       </p>
       <div className='flex w-full items-center justify-center space-x-4 py-4 md:pb-10'>
         <Button className='gap-2' asChild>
@@ -73,13 +89,14 @@ export default function Home() {
           </Link>
         </Button>
       </div>
-      <StarterAccordion />
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+      <div className='text-left'>
+        <h1 className='text-left text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]'>
+          Recent products in <u className='cursor-pointer'>Coimbatore, India</u>
+        </h1>
+      </div>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 md:pb-10 w-full text-left'>
         {products.map((product, index) => (
-          <ProductCard
-            key={index}
-            product={product}
-          />
+          <ProductCard key={index} product={product} />
         ))}
       </div>
     </section>

@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: 'Nextjs Shadcn Template',
-  url: 'https://nextjs-shadcn-template.vercel.app',
+  name: 'Peram: Where sale meet transparency',
+  url: 'https://peram.web.app',
   ogImage: 'https://nextjs-shadcn-template.vercel.app/og.png',
   description:
-    'This is a starter template for Next.js with shadcn, including GitHub Actions, Husky, Eslint, and Prettier.',
+    'List, bid, and sell easily.',
   links: {
     twitter: 'https://twitter.com/Jozefzin',
     github: 'https://github.com/jjozef/nextjs-shadcn-template'
