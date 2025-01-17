@@ -6,7 +6,7 @@ import { siteConfig } from '@/root/config/site'
 import { fontGeinstSans } from '@/components/ui/fonts'
 
 import { AppProvider } from '@/providers/app-provider'
-import Header from '@/components/header'
+import Header from '@/components/headers'
 
 export const metadata = {
   title: {

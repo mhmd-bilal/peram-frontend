@@ -7,9 +7,10 @@ import { SearchInput } from '@/components/ui/input'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { LogIn } from 'lucide-react'
-import SearchIcon from '../../public/search-icon.svg'
+import SearchIcon from '../../../public/search-icon.svg'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import Link from 'next/link'
+import { CategoriesNav } from './categories'
 
 export default function Header() {
   const segment = useSelectedLayoutSegment()
@@ -23,6 +24,7 @@ export default function Header() {
             <LogoAppIcon />
           </Link>
           <nav className='flex items-center gap-4 text-sm'>
+            <CategoriesNav />
             {siteRoutes.map((route, index) => (
               <Link
                 className={cn(
@@ -41,10 +43,12 @@ export default function Header() {
         <div className='flex items-center gap-4'>
           <SearchInput placeholder='Search Products' startIcon={SearchIcon} />
           <ModeToggle className='mr-2' />
-          <Button variant='secondary' size='sm'>
-            <LogIn className='mr-2 h-4 w-4' />
-            Login
-          </Button>
+          <Link href='/login'>
+            <Button variant='secondary' size='sm'>
+              <LogIn className='mr-2 h-4 w-4' />
+              Login
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
