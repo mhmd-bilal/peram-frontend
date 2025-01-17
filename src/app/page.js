@@ -20,34 +20,68 @@ export default function Home() {
   const products = [
     {
       image: '/image.png',
-      name: 'Product 1',
-      startingPrice: '10.00',
-      closingPrice: '15.00',
+      name: 'High-Quality Gadget',
+      startingPrice: '100.00',
+      closingPrice: '150.00',
       subtitle:
-        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
+        'A high-quality gadget designed for daily use. Compact and feature-packed for ease of use.'
     },
     {
       image: '/image.png',
-      name: 'Product 1',
-      startingPrice: '10.00',
-      closingPrice: '15.00',
+      name: 'Versatile DIY Tool',
+      startingPrice: '120.00',
+      closingPrice: '110.00',
       subtitle:
-        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
-    },    {
+        'A versatile tool perfect for any DIY project. Lightweight and durable, with multiple settings.'
+    },
+    {
       image: '/image.png',
-      name: 'Product 1',
-      startingPrice: '10.00',
-      closingPrice: '15.00',
+      name: 'Ergonomic Office Chair',
+      startingPrice: '130.00',
+      closingPrice: '125.00',
       subtitle:
-        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
-    },    {
+        'An ergonomic chair designed for comfort during long hours of sitting. Adjustable features for perfect posture.'
+    },
+    {
       image: '/image.png',
-      name: 'Product 1',
-      startingPrice: '10.00',
-      closingPrice: '15.00',
+      name: 'Portable Outdoor Speaker',
+      startingPrice: '80.00',
+      closingPrice: '90.00',
       subtitle:
-        'hwl le asfo no pasn fas nf il asnf asionfoiasn foiansiuf naso nfsafnpnsafsaf afasbjif la'
-    },    // Add more products as needed
+        'A portable speaker with impressive sound quality. Waterproof and ready for outdoor adventures.'
+    },
+    {
+      image: '/image.png',
+      name: 'Fitness Tracker',
+      startingPrice: '200.00',
+      closingPrice: '250.00',
+      subtitle:
+        'A fitness tracker that monitors heart rate, steps, and calories burned. Sleek design and long-lasting battery.'
+    },
+    {
+      image: '/image.png',
+      name: 'Minimalist Watch',
+      startingPrice: '50.00',
+      closingPrice: '45.00',
+      subtitle:
+        'A stylish watch with a minimalist design. Perfect for both casual and formal occasions.'
+    },
+    {
+      image: '/image.png',
+      name: 'Professional Camera',
+      startingPrice: '220.00',
+      closingPrice: '200.00',
+      subtitle:
+        'A professional-grade camera with high resolution and fast autofocus. Ideal for photography enthusiasts.'
+    },
+    {
+      image: '/image.png',
+      name: 'Durable Backpack',
+      startingPrice: '60.00',
+      closingPrice: '55.00',
+      subtitle:
+        'A durable backpack with multiple compartments for organizing your gear. Great for hiking or daily commutes.'
+    }
   ]
 
   return (
@@ -55,7 +89,7 @@ export default function Home() {
       <div className='absolute bottom-0 left-0 right-0 top-0 -z-[1] bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_45%_50%_at_50%_0%,#000_70%,transparent_110%)]' />
 
       <Badge
-        className='select-none text-sm transition hover:scale-105'
+        className='select-none text-sm transition-all duration-300 hover:scale-105'
         variant='secondary'
       >
         List, bid, and sell easily 🎉
