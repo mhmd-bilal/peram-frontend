@@ -9,7 +9,8 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
 import { categories } from '@/root/config/site'
 
@@ -17,22 +18,31 @@ export function CategoriesNav() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {categories.map((category) => (
-          <NavigationMenuItem key={category.title}>
-            <NavigationMenuTrigger>{category.title}</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
-                {category.items.map((item) => (
-                  <ListItem
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  />
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        ))}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className='transition-colors font-normal text-foreground/60 hover:text-foreground/80'>
+            Categories
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
+              {categories.map((category) => (
+                <ListItem key={category.title} title={category.title} href='#'>
+                  <ul className='mt-2 space-y-2'>
+                    {category.items.map((item) => (
+                      <li key={item.title}>
+                        <Link
+                          href={item.href}
+                          className='text-sm font-normal text-muted-foreground hover:text-foreground'
+                        >
+                          {item.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   )
@@ -52,11 +62,7 @@ const ListItem = React.forwardRef(
             {...props}
           >
             <div className='text-sm font-medium leading-none'>{title}</div>
-            {children && (
-              <p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
-                {children}
-              </p>
-            )}
+            {children}
           </a>
         </NavigationMenuLink>
       </li>

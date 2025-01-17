@@ -11,9 +11,9 @@ export const siteConfig = {
 
 export const siteRoutes = [
   {
-    name: 'Example',
-    path: '/example',
-    segment: 'example'
+    name: 'Product',
+    path: '/product',
+    segment: 'product'
   }
 ]
 
