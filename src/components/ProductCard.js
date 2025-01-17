@@ -10,15 +10,20 @@ export default function Card08({ product, className = '' }) {
     name = 'Modern Design Systems',
     subtitle = 'Explore the fundamentals of contemporary UI design',
     image = 'https://via.placeholder.com/300',
+    startingPrice = '10.00',
+    closingPrice = '15.00',
     badge = { text: 'New', variant: 'orange' },
     href = '#'
   } = product
 
+  const isPriceIncreased = parseFloat(startingPrice) < parseFloat(closingPrice)
+  const badgeVariant = isPriceIncreased ? 'red' : 'green'
+  const arrowIcon = isPriceIncreased ? '↑' : '↓'
+
+  const [badgeText, setBadgeText] = React.useState(`${startingPrice} → ${closingPrice}`)
+
   return (
-    <a
-      href={href}
-      className={cn('flex flex-col w-[fit] group', className)}
-    >
+    <a href={href} className={cn('flex flex-col w-[fit] group', className)}>
       <div
         className={cn(
           'relative overflow-hidden rounded-2xl',
@@ -52,13 +57,23 @@ export default function Card08({ product, className = '' }) {
         {badge && (
           <div className='absolute top-3 right-3'>
             <span
-              className={cn('px-2.5 py-1 rounded-full text-xs font-medium', {
+              className={cn('px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300', {
                 'bg-pink-500 text-white': badge.variant === 'pink',
                 'bg-indigo-500 text-white': badge.variant === 'indigo',
-                'bg-orange-500 text-white': badge.variant === 'orange'
+                'bg-orange-500 text-white': badge.variant === 'orange',
+                'bg-green-500 text-white': badgeVariant === 'green',
+                'bg-red-500 text-white': badgeVariant === 'red',
               })}
+              onMouseEnter={() => {
+                console.log('Mouse entered');
+                setBadgeText(`${startingPrice} → ${closingPrice}`);
+              }}
+              onMouseLeave={() => {
+                console.log('Mouse left');
+                setBadgeText(`${closingPrice} ${arrowIcon}`);
+              }}
             >
-              {badge.text}
+              {badgeText}
             </span>
           </div>
         )}
