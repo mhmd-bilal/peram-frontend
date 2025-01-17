@@ -1,10 +1,13 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-
 import { siteRoutes } from '@/root/config/site'
 import { LogoAppIcon } from '@/components/ui/icons'
+import { SearchInput } from '@/components/ui/input'
 import { ModeToggle } from '@/components/mode-toggle'
+import { Button } from '@/components/ui/button'
+import { LogIn } from 'lucide-react'
+import SearchIcon from '../../public/search-icon.svg'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import Link from 'next/link'
 
@@ -35,7 +38,14 @@ export default function Header() {
             ))}
           </nav>
         </div>
-        <ModeToggle />
+        <div className='flex items-center gap-4'>
+          <SearchInput placeholder='Search Products' startIcon={SearchIcon} />
+          <ModeToggle className='mr-2' />
+          <Button variant='secondary' size='sm'>
+            <LogIn className='mr-2 h-4 w-4' />
+            Login
+          </Button>
+        </div>
       </div>
     </header>
   )
