@@ -30,7 +30,8 @@ export function CategoriesNav() {
                     {category.items.map((item) => (
                       <li key={item.title}>
                         <Link
-                          href={`/category/${item.slug}`}
+                          href={`/category`}
+                          // href={`/category/${item.slug}`}
                           className='text-sm font-normal text-muted-foreground hover:text-foreground'
                         >
                           {item.title}

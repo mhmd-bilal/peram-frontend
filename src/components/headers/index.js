@@ -11,13 +11,18 @@ import SearchIcon from '../../../public/search-icon.svg'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import Link from 'next/link'
 import { CategoriesNav } from './categories'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
 export default function Header() {
   const segment = useSelectedLayoutSegment()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { theme } = useTheme()
+  const [theme, setTheme] = useState('')
+  const { theme: currentTheme } = useTheme()
+
+  useEffect(() => {
+    setTheme(currentTheme)
+  }, [currentTheme])
 
   return (
     <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>

@@ -119,19 +119,28 @@ const ProductDetails = () => {
         <h2 className='text-xl font-semibold text-left mb-2'>
           {product.subtitle}
         </h2>
-        <p className='text-lg text-left text-gray-700 mb-4'>
+        <p className='text-lg text-left text-gray-800 dark:text-gray-400 mb-4'>
           Price:{' '}
           <span className='font-bold text-green-600'>
             ${product.startingPrice} - ${product.closingPrice}
           </span>
         </p>
-        <p className='text-gray-600 mb-4'>{product.description}</p>
+        <p className='text-gray-800 dark:text-gray-400 mb-4'>
+          {product.description}
+        </p>
       </div>
 
       {/* Right Side: Bid Details */}
-      <div className='p-4 pt-12 rounded-lg grid grid-cols-1 md:grid-cols-1 gap-4'>
+      <div className='p-4 md:pt-12 rounded-lg grid grid-cols-1 md:grid-cols-1 gap-4'>
         <div>
-          <h2 className='text-2xl font-semibold mb-2'>Bid Details</h2>
+          <div className='flex flex-row gap-2'>
+            <h2 className='text-2xl font-semibold mb-2'>
+              Bid Details{' '}
+              <span className='text-sm font-light text-gray-800 dark:text-gray-400'>
+                last updated 2s ago
+              </span>
+            </h2>
+          </div>
           <div className='mb-4'>
             <Card className='shadow-none '>
               <CardHeader className='p-4'>
@@ -203,7 +212,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <div className='p-4 pt-12 rounded-lg grid grid-cols-1 md:grid-cols-1 gap-4'>
+      <div className='p-4 md:pt-12 rounded-lg grid grid-cols-1 md:grid-cols-1 gap-4'>
         {/* Your Bids Section */}
         <div className='rounded-lg'>
           <h2 className='text-2xl font-semibold mb-2'>Your Bids</h2>

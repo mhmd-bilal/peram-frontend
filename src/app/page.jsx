@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { StarterAccordion } from '@/components/starter-accordion'
 import { GitHubIcon, TwitterIcon } from '@/components/ui/icons'
 import Link from 'next/link'
-import ProductCard from '../components/ProductCard'
+import ProductCard from '@/components/ProductCard'
 import {
   Dialog,
   DialogContent,
@@ -89,7 +89,7 @@ export default function Home() {
   ]
 
   return (
-    <section className='container relative mx-auto flex max-w-[980px] grow flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20'>
+    <section className='container relative mx-auto flex max-w-[1080px] grow flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20'>
       <div className='absolute bottom-0 left-0 right-0 top-0 -z-[1] bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_45%_50%_at_50%_0%,#000_70%,transparent_110%)]' />
 
       <Badge
