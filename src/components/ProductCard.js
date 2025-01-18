@@ -28,7 +28,7 @@ export default function Card08({ product, className = '' }) {
   const [badgeText, setBadgeText] = React.useState(`${closingPrice}`)
 
   return (
-    <a href={`/products/${product.id}`} className={cn('flex flex-col w-[fit] group', className)}>
+    <a href={`/product/`} className={cn('flex flex-col w-[fit] group', className)}>
       <div
         className={cn(
           'relative overflow-hidden rounded-2xl',

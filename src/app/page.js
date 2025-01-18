@@ -15,21 +15,10 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ChartBarStacked, Pickaxe } from 'lucide-react'
 
-// New ProductCard component
-// function ProductCard({ image, name, startingPrice, closingPrice }) {
-//   return (
-//     <div className='border rounded-sm p-4'>
-//       <img src={image} alt={name} className='w-full h-48 object-cover' />
-//       <h2 className='text-lg font-bold'>{name}</h2>
-//       <p>Starting Price: {startingPrice}</p>
-//       <p>Closing Price: {closingPrice}</p>
-//     </div>
-//   )
-// }
-
 export default function Home() {
   const products = [
     {
+      id:1,
       image: '/image.png',
       name: 'High-Quality Gadget',
       startingPrice: '100.00',
@@ -39,6 +28,7 @@ export default function Home() {
         'A high-quality gadget designed for daily use. Compact and feature-packed for ease of use.'
     },
     {
+      id:2,
       image: '/image.png',
       name: 'Versatile DIY Tool',
       startingPrice: '120.00',
@@ -48,6 +38,7 @@ export default function Home() {
         'A versatile tool perfect for any DIY project. Lightweight and durable, with multiple settings.'
     },
     {
+      id:3 ,
       image: '/image.png',
       name: 'Ergonomic Office Chair',
       startingPrice: '130.00',
