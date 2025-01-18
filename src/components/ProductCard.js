@@ -28,7 +28,7 @@ export default function Card08({ product, className = '' }) {
   const [badgeText, setBadgeText] = React.useState(`${closingPrice}`)
 
   return (
-    <a href={href} className={cn('flex flex-col w-[fit] group', className)}>
+    <a href={`/products/${product.id}`} className={cn('flex flex-col w-[fit] group', className)}>
       <div
         className={cn(
           'relative overflow-hidden rounded-2xl',
@@ -39,7 +39,7 @@ export default function Card08({ product, className = '' }) {
           'hover:-translate-y-1 hover:shadow-md',
           'hover:border-zinc-300/50 dark:hover:border-zinc-700/50',
           `shadow-${contextColor}`,
-          `shadow-2xl shadow-${contextColor}-500/20`
+          `shadow-[0_0_20px_${contextColor}]`
         )}
       >
         {/* Image Section */}

@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'Peram: Where sale meet transparency',
+  name: 'Peram: Where sale meets transparency',
   url: 'https://peram.web.app',
   ogImage: 'https://i.ibb.co/qpk3xjv/image.png',
   description: 'List, bid, and sell easily.',

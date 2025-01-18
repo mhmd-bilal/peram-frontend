@@ -108,7 +108,7 @@ export default function Home() {
         List, bid, and sell easily 🎉
       </Badge>
       <h1 className='text-center text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]'>
-        Peram: Where sale meet transparency
+        Peram: Where sale meets transparency
       </h1>
       <p className='mx-auto max-w-[750px] text-pretty text-center text-lg text-muted-foreground sm:text-xl'>
         Bid, win, and save—explore a wide range of products at unbeatable prices

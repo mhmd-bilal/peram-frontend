@@ -12,17 +12,19 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 import Link from 'next/link'
 import { CategoriesNav } from './categories'
 import { useState } from 'react'
+import { useTheme } from 'next-themes'
 
 export default function Header() {
   const segment = useSelectedLayoutSegment()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme } = useTheme()
 
   return (
     <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
       <div className='container flex h-14 max-w-screen-2xl items-center justify-between'>
         <div className='flex items-center'>
           <Link className='mr-5 flex items-center' href='/'>
-            <LogoAppIcon />
+            <LogoAppIcon theme={theme} />
             <span className='ml-2 text-lg font-medium'>Peram</span>
           </Link>
           <div className='hidden md:flex items-center gap-4 text-sm'>
