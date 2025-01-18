@@ -23,14 +23,14 @@ export function CategoriesNav() {
             Categories
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
+            <ul className='grid w-[800px] gap-0 p-2 grid-cols-4 md:w-[400px] md:grid-cols-3 lg:w-[900px] lg:grid-cols-4'>
               {categories.map((category) => (
-                <ListItem key={category.title} title={category.title} href='#'>
-                  <ul className='mt-2 space-y-2'>
+                <ListItem key={category.title} title={category.title} href='#' className="hover:bg-transparent">
+                  <ul className='space-y-0 pt-1'>
                     {category.items.map((item) => (
                       <li key={item.title}>
                         <Link
-                          href={item.href}
+                          href={`/category/${item.slug}`}
                           className='text-sm font-normal text-muted-foreground hover:text-foreground'
                         >
                           {item.title}

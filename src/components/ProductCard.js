@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
+import { ArrowUpRight, ArrowDownRight } from 'lucide-react'
 
 export default function Card08({ product, className = '' }) {
   const {
@@ -18,9 +18,9 @@ export default function Card08({ product, className = '' }) {
 
   const isPriceIncreased = parseFloat(startingPrice) < parseFloat(closingPrice)
   const badgeVariant = isPriceIncreased ? 'red' : 'green'
-  const arrowIcon = isPriceIncreased ? '↑' : '↓'
+  const arrowIcon = isPriceIncreased ? <ArrowUpRight size={"15"} /> : <ArrowDownRight size={"15"} />
 
-  const [badgeText, setBadgeText] = React.useState(`${startingPrice} → ${closingPrice}`)
+  const [badgeText, setBadgeText] = React.useState(`${closingPrice}`)
 
   return (
     <a href={href} className={cn('flex flex-col w-[fit] group', className)}>
@@ -55,25 +55,15 @@ export default function Card08({ product, className = '' }) {
 
         {/* Badge */}
         {badge && (
-          <div className='absolute top-3 right-3'>
+          <div className='absolute top-3 right-3 flex items-center'>
             <span
-              className={cn('px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300', {
-                'bg-pink-500 text-white': badge.variant === 'pink',
-                'bg-indigo-500 text-white': badge.variant === 'indigo',
-                'bg-orange-500 text-white': badge.variant === 'orange',
+              className={cn('flex flex-row px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300', {
                 'bg-green-500 text-white': badgeVariant === 'green',
                 'bg-red-500 text-white': badgeVariant === 'red',
               })}
-              onMouseEnter={() => {
-                console.log('Mouse entered');
-                setBadgeText(`${startingPrice} → ${closingPrice}`);
-              }}
-              onMouseLeave={() => {
-                console.log('Mouse left');
-                setBadgeText(`${closingPrice} ${arrowIcon}`);
-              }}
             >
               {badgeText}
+              {arrowIcon}
             </span>
           </div>
         )}
