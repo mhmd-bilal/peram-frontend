@@ -48,7 +48,7 @@ export default function Card08({ product, className = '' }) {
             src={image}
             alt={name}
             fill
-            className='object-cover transition-transform duration-500 group-hover:scale-125 group-hover:blur-sm '
+            className='object-cover transition-transform duration-500 group-hover:scale-125 '
           />
         </div>
 

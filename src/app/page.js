@@ -13,6 +13,7 @@ import {
   DialogTrigger
 } from '@/components/ui/dialog'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { ChartBarStacked, Pickaxe } from 'lucide-react'
 
 // New ProductCard component
 // function ProductCard({ image, name, startingPrice, closingPrice }) {
@@ -116,12 +117,11 @@ export default function Home() {
       <div className='flex w-full items-center justify-center space-x-4 py-4 md:pb-10'>
         <Button className='gap-2' asChild>
           <Link
-            href='https://github.com/JJozef/nextjs-shadcn-template'
+            href='/categories'
             rel='noopener noreferrer'
-            target='_blank'
           >
-            <GitHubIcon className='h-5 w-5 min-w-5' />
-            GitHub
+            <ChartBarStacked className='h-5 w-5 min-w-5' />
+            Explore categories
           </Link>
         </Button>
         <Button className='gap-2' variant='outline' asChild>
@@ -130,8 +130,8 @@ export default function Home() {
             rel='noopener noreferrer'
             target='_blank'
           >
-            <TwitterIcon className='h-5 w-5 min-w-5' />
-            Twitter
+            <Pickaxe className='h-5 w-5 min-w-5' />
+            Host your auction
           </Link>
         </Button>
       </div>
