@@ -19,7 +19,7 @@ export function CategoriesNav() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className='transition-colors font-normal text-foreground/60 hover:text-foreground/80'>
+          <NavigationMenuTrigger className='transition-colors font-normal bg-transparent text-foreground/60 hover:text-foreground/80'>
             Categories
           </NavigationMenuTrigger>
           <NavigationMenuContent>

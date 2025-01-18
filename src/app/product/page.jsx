@@ -54,11 +54,12 @@ const ProductDetails = () => {
 
   const product = {
     id: 1,
-    image: '/image.png',
+    image: '/image2.png',
     name: 'High-Quality Gadget',
     subtitle: 'Explore the fundamentals of contemporary UI design',
     startingPrice: '10.00',
     closingPrice: '15.00',
+    contextColor: '#fd9e00',
     description:
       'Detailed description of the product goes here. This product is designed to help you understand the principles of modern design systems and how to implement them effectively in your projects.'
   }
@@ -72,7 +73,7 @@ const ProductDetails = () => {
     { user: 'Frank', amount: 18.0, date: '2023-10-02', time: '19:00' }
   ])
 
-  const [newBid, setNewBid] = useState({ user: '', amount: '' })
+  const [newBid, setNewBid] = useState({ user: 'David', amount: '' })
   const [sortOrder, setSortOrder] = useState('asc')
 
   const handleBidChange = (e) => {
@@ -112,7 +113,8 @@ const ProductDetails = () => {
         <img
           src={product.image}
           alt={product.name}
-          className='w-full h-auto rounded-sm shadow-lg mb-6'
+          className={`w-full h-auto rounded-sm shadow-lg shadow-${product.contextColor} mb-6`}
+          style={{ boxShadow: `0px 0px 10000px 0px ${product.contextColor}` }}
         />
         <h2 className='text-xl font-semibold text-left mb-2'>
           {product.subtitle}
@@ -131,12 +133,12 @@ const ProductDetails = () => {
         <div>
           <h2 className='text-2xl font-semibold mb-2'>Bid Details</h2>
           <div className='mb-4'>
-            <Card className='shadow-none'>
-              <CardHeader>
+            <Card className='shadow-none '>
+              <CardHeader className='p-4'>
                 <CardTitle>Line Chart - Dots</CardTitle>
                 <CardDescription>January - June 2024</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className='p-4'>
                 <ChartContainer config={chartConfig}>
                   <LineChart
                     accessibilityLayer
@@ -144,7 +146,7 @@ const ProductDetails = () => {
                     margin={{
                       left: 12,
                       right: 12,
-                      top: 10
+                      top: 12
                     }}
                   >
                     <CartesianGrid vertical={true} />
@@ -156,16 +158,16 @@ const ProductDetails = () => {
                       tickFormatter={(value) => `${value}h`}
                     />
                     <ChartTooltip
-                      cursor={false}
+                      cursor={true}
                       content={<ChartTooltipContent hideLabel />}
                     />
                     <Line
                       dataKey='amount'
                       type='natural'
-                      stroke='var(--color-desktop)'
+                      stroke={product.contextColor}
                       strokeWidth={2}
                       dot={{
-                        fill: 'var(--color-desktop)'
+                        fill: product.contextColor
                       }}
                       activeDot={{
                         r: 6

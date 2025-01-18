@@ -29,7 +29,7 @@ export default function Home() {
     },
     {
       id:2,
-      image: '/image.png',
+      image: '/image2.png',
       name: 'Versatile DIY Tool',
       startingPrice: '120.00',
       closingPrice: '110.00',
@@ -102,7 +102,7 @@ export default function Home() {
         Peram: Where sale meets transparency
       </h1>
       <p className='mx-auto max-w-[750px] text-pretty text-center text-lg text-muted-foreground sm:text-xl'>
-        Bid, win, and save—explore a wide range of products at unbeatable prices
+        Explore a wide range of products at unbeatable prices
         while enjoying a transparent auction experience.{' '}
       </p>
       <div className='flex w-full items-center justify-center space-x-4 py-4 md:pb-10'>
