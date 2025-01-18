@@ -13,12 +13,17 @@ export default function Card08({ product, className = '' }) {
     startingPrice = '10.00',
     closingPrice = '15.00',
     badge = { text: 'New', variant: 'orange' },
-    href = '#'
+    href = '#',
+    contextColor = 'yellow'
   } = product
 
   const isPriceIncreased = parseFloat(startingPrice) < parseFloat(closingPrice)
   const badgeVariant = isPriceIncreased ? 'red' : 'green'
-  const arrowIcon = isPriceIncreased ? <ArrowUpRight size={"15"} /> : <ArrowDownRight size={"15"} />
+  const arrowIcon = isPriceIncreased ? (
+    <ArrowUpRight size={'15'} />
+  ) : (
+    <ArrowDownRight size={'15'} />
+  )
 
   const [badgeText, setBadgeText] = React.useState(`${closingPrice}`)
 
@@ -32,7 +37,9 @@ export default function Card08({ product, className = '' }) {
           'border border-zinc-200/50 dark:border-zinc-800/50',
           'shadow-sm transition-all duration-300',
           'hover:-translate-y-1 hover:shadow-md',
-          'hover:border-zinc-300/50 dark:hover:border-zinc-700/50'
+          'hover:border-zinc-300/50 dark:hover:border-zinc-700/50',
+          `shadow-${contextColor}`,
+          `shadow-2xl shadow-${contextColor}-500/20`
         )}
       >
         {/* Image Section */}
@@ -41,7 +48,7 @@ export default function Card08({ product, className = '' }) {
             src={image}
             alt={name}
             fill
-            className='object-cover transition-transform duration-500 group-hover:scale-105'
+            className='object-cover transition-transform duration-500 group-hover:scale-125 group-hover:blur-sm '
           />
         </div>
 
@@ -57,10 +64,13 @@ export default function Card08({ product, className = '' }) {
         {badge && (
           <div className='absolute top-3 right-3 flex items-center'>
             <span
-              className={cn('flex flex-row px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300', {
-                'bg-green-500 text-white': badgeVariant === 'green',
-                'bg-red-500 text-white': badgeVariant === 'red',
-              })}
+              className={cn(
+                'flex flex-row px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300',
+                {
+                  'bg-green-500 text-white': badgeVariant === 'green',
+                  'bg-red-500 text-white': badgeVariant === 'red'
+                }
+              )}
             >
               {badgeText}
               {arrowIcon}
@@ -81,8 +91,8 @@ export default function Card08({ product, className = '' }) {
             </div>
             <div
               className={cn(
-                'p-2 rounded-full bg-white/10 backdrop-blur-md',
-                'group-hover:bg-white/20 transition-colors duration-300'
+                `p-2 rounded-full bg-${contextColor} backdrop-blur-md`,
+                `group-hover:bg-${contextColor} transition-colors duration-300`
               )}
             >
               <ArrowUpRight className='w-4 h-4 text-white' />

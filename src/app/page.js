@@ -4,6 +4,16 @@ import { StarterAccordion } from '@/components/starter-accordion'
 import { GitHubIcon, TwitterIcon } from '@/components/ui/icons'
 import Link from 'next/link'
 import ProductCard from '../components/ProductCard'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from '@/components/ui/dialog'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+
 // New ProductCard component
 // function ProductCard({ image, name, startingPrice, closingPrice }) {
 //   return (
@@ -23,6 +33,7 @@ export default function Home() {
       name: 'High-Quality Gadget',
       startingPrice: '100.00',
       closingPrice: '150.00',
+      contextColor:"#fcba03",
       subtitle:
         'A high-quality gadget designed for daily use. Compact and feature-packed for ease of use.'
     },
@@ -31,6 +42,7 @@ export default function Home() {
       name: 'Versatile DIY Tool',
       startingPrice: '120.00',
       closingPrice: '110.00',
+      contextColor:"#0398fc",
       subtitle:
         'A versatile tool perfect for any DIY project. Lightweight and durable, with multiple settings.'
     },
@@ -124,9 +136,34 @@ export default function Home() {
         </Button>
       </div>
       <div className='text-left'>
-        <h1 className='text-left text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]'>
-          Recent products in <u className='cursor-pointer'>Coimbatore, India</u>
-        </h1>
+        <Dialog>
+          <h1 className='text-left text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]'>
+            Recent products in{' '}
+            <DialogTrigger>
+              <u className='cursor-pointer'>Coimbatore, India</u>
+            </DialogTrigger>
+          </h1>
+
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Select location</DialogTitle>
+              <DialogDescription>
+                From the dropdown, please select the state.
+                <Select>
+                  <SelectTrigger className="mt-2">
+                    <SelectValue placeholder="Select a location" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="coimbatore">Coimbatore</SelectItem>
+                    <SelectItem value="chennai">Chennai</SelectItem>
+                    <SelectItem value="bangalore">Bangalore</SelectItem>
+                    <SelectItem value="mumbai">Mumbai</SelectItem>
+                  </SelectContent>
+                </Select>
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 md:pb-10 w-full text-left'>
         {products.map((product, index) => (
