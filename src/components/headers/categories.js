@@ -19,11 +19,11 @@ export function CategoriesNav() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className='transition-colors font-normal bg-transparent text-foreground/60 hover:text-foreground/80'>
+          <NavigationMenuTrigger className='transition-colors font-normal bg-transparent text-foreground/60 hover:text-foreground/80 p-0 hover:bg-transparent focus:bg-transparent'>
             Categories
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className='grid w-[800px] gap-0 p-2 grid-cols-4 md:w-[400px] md:grid-cols-3 lg:w-[900px] lg:grid-cols-4'>
+            <ul className='grid w-[800px] gap-0 p-2 grid-cols-1 md:w-[400px] md:grid-cols-3 lg:w-[900px] lg:grid-cols-4'>
               {categories.map((category) => (
                 <ListItem key={category.title} title={category.title} href='#' className="hover:bg-transparent">
                   <ul className='space-y-0 pt-1'>

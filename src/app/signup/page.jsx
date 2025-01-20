@@ -12,56 +12,40 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import { login } from '@/utils/api'
-import { supabase } from '@/utils/supabaseClient'
+import { signup } from '@/utils/api'
 import toast from 'react-hot-toast'
 
-export default function LoginPage() {
+export default function SignupPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
     try {
-      const response = await login(email, password)
+      const response = await signup(email, password);
 
       if (response.ok) {
-        const data = await response.json()
-        localStorage.setItem('token', data.token)
-        toast.success('Login successful')
+        toast.success('User registered successfully');
       } else {
-        const data = await response.json()
-        toast.error(data.message || 'Invalid credentials')
+        const data = await response.json();
+        toast.error(data.message || 'Error in registration');
       }
     } catch (error) {
-      console.error('Error:', error)
-      toast.error('An error occurred. Please try again.')
-    }
-  }
-
-  const handleGoogleSignIn = async () => {
-    const { user, session, error } = await supabase.auth.signInWithOAuth({
-      provider: 'google'
-    })
-
-    if (error) {
-      toast.error('Error signing in with Google: ' + error.message)
-    } else {
-      localStorage.setItem('token', session.access_token)
-      toast.success('Google login successful')
+      console.error('Error:', error);
+      toast.error('An error occurred. Please try again.');
     }
   }
 
   return (
     <div className='flex items-center justify-center bg-background py-24'>
-      <Card className='w-[400px] pb-6'>
+      <Card className='w-[400px]'>
         <CardHeader>
-          <CardTitle>Welcome back</CardTitle>
+          <CardTitle>Create an Account</CardTitle>
           <CardDescription>
-            Enter your credentials to access your account
+            Enter your details to create an account
           </CardDescription>
         </CardHeader>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignup}>
           <CardContent className='space-y-4'>
             <div className='space-y-2'>
               <Label htmlFor='email'>Email</Label>
@@ -87,16 +71,11 @@ export default function LoginPage() {
           </CardContent>
           <CardFooter>
             <Button type='submit' className='w-full'>
-              Sign in
+              Sign Up
             </Button>
           </CardFooter>
         </form>
-        <div className='px-6'>
-          <Button onClick={handleGoogleSignIn} className='w-full'>
-            Sign in with Google
-          </Button>
-        </div>
       </Card>
     </div>
   )
-}
+} 

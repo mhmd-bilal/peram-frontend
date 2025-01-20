@@ -7,6 +7,8 @@ import { fontGeinstSans } from '@/components/ui/fonts'
 
 import { AppProvider } from '@/providers/app-provider'
 import Header from '@/components/headers'
+import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from './context/AuthContext'
 
 export const metadata = {
   title: {
@@ -61,25 +63,28 @@ export const metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png'
   },
-  manifest: `${siteConfig.url}/site.webmanifest`
+  manifest: `/site.webmanifest`
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <body
-        className={cn(
-          'min-h-dvh bg-background font-sans antialiased',
-          fontGeinstSans.variable
-        )}
-      >
-        <AppProvider>
-          <main className='flex h-full animate-blurred-fade-in flex-col'>
-            <Header />
-            {children}
-          </main>
-        </AppProvider>
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang='en' suppressHydrationWarning>
+        <body
+          className={cn(
+            'min-h-dvh bg-background font-sans antialiased',
+            fontGeinstSans.variable
+          )}
+        >
+          <AppProvider>
+            <main className='flex h-full animate-blurred-fade-in flex-col'>
+              <Header />
+              {children}
+              <Toaster />
+            </main>
+          </AppProvider>
+        </body>
+      </html>
+    </AuthProvider>
   )
 }

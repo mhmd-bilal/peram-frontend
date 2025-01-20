@@ -1,18 +1,18 @@
 {
-  "name": "Nextjs Shadcn Template",
-  "short_name": "Nextjs Shadcn Template",
-  "description": "This is a starter template for Next.js with shadcn, including GitHub Actions, Husky, Eslint, and Prettier.",
+  "name": "Peram",
+  "short_name": "Peram",
+  "description": "Peram",
   "theme_color": "#ffffff",
   "background_color": "#00000",
   "display": "fullscreen",
   "icons": [
     {
-      "src": "/favicon-16x16.png",
+      "src": "/apple-touch-icon.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "/favicon-32x32.png",
+      "src": "/apple-touch-icon.png",
       "sizes": "32x32",
       "type": "image/png"
     }

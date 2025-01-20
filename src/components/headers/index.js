@@ -13,12 +13,16 @@ import Link from 'next/link'
 import { CategoriesNav } from './categories'
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import { HamburgerMenuIcon } from '@radix-ui/react-icons'
+import { useAuth } from '../../app/context/AuthContext'
 
 export default function Header() {
   const segment = useSelectedLayoutSegment()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [theme, setTheme] = useState('')
   const { theme: currentTheme } = useTheme()
+  const { isUserSignedIn } = useAuth()
+  console.log("isUserSignedIn",isUserSignedIn)
 
   useEffect(() => {
     setTheme(currentTheme)
@@ -51,20 +55,23 @@ export default function Header() {
                 )
             )}
           </div>
+        </div>
+        <div className='flex items-center gap-4'>
+          <SearchInput
+            placeholder='Search Products'
+            startIcon={<Search size={'15'} />}
+          />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className='md:hidden'
           >
-            {/* Add hamburger icon here */}
+            <HamburgerMenuIcon />
           </button>
-        </div>
-        <div className='flex items-center gap-4'>
-          <SearchInput placeholder='Search Products' startIcon={<Search size={"15"} />} />
           <ModeToggle className='mr-2' />
-          <Link href='/login'>
+          <Link href={isUserSignedIn ? '#' : '/login'}>
             <Button variant='secondary' size='sm' className='font-normal'>
               <LogIn className='mr-2 h-4 w-4' />
-              Login
+              {isUserSignedIn ? 'Signed In' : 'Login'}
             </Button>
           </Link>
         </div>
