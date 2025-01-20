@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const cookies = parse(document.cookie)
     const sessionCookie = cookies.session
-    console.log("cookies",cookies)
+    console.log('cookies', cookies)
     if (sessionCookie) {
       setIsUserSignedIn(true)
       setToken(sessionCookie)

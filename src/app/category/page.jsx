@@ -19,6 +19,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import ProductCard from '@/components/ProductCard'
+
 export default function CategoryPage() {
   const products = [
     {

@@ -19,14 +19,12 @@ import {
 
 export default function LocationDialog() {
   const [location, setLocation] = useState('') // State to hold the selected location
-  const [userLocation, setUserLocation] = useState(null) // State to hold user location
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords
-          setUserLocation({ latitude, longitude })
           getStateName(latitude, longitude) // Get state name
         },
         (error) => {
