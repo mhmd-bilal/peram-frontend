@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils"; // Utility for conditional class names
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils'; // Utility for conditional class names
 
 export const Expandable = ({
   children,
   expanded = false,
   transitionDuration = 0.3,
-  easeType = "easeInOut",
-  expandDirection = "vertical", // "vertical" or "horizontal"
+  easeType = 'easeInOut',
+  expandDirection = 'vertical', // "vertical" or "horizontal"
   initialDelay = 0,
-  expandBehavior = "push", // "push" or "overlay"
+  expandBehavior = 'push', // "push" or "overlay"
   className,
   onExpandStart,
   onExpandEnd,
@@ -43,15 +43,15 @@ export const Expandable = ({
 
   const motionVariants = {
     initial: {
-      scale: expandBehavior === "overlay" ? 1 : 1,
-      height: expandDirection === "vertical" ? 0 : "auto",
-      width: expandDirection === "horizontal" ? 0 : "auto",
+      scale: expandBehavior === 'overlay' ? 1 : 1,
+      height: expandDirection === 'vertical' ? 0 : 'auto',
+      width: expandDirection === 'horizontal' ? 0 : 'auto',
       opacity: 0,
     },
     animate: {
       scale: 1,
-      height: "auto",
-      width: "auto",
+      height: 'auto',
+      width: 'auto',
       opacity: 1,
       transition: {
         duration: transitionDuration,
@@ -60,9 +60,9 @@ export const Expandable = ({
       },
     },
     exit: {
-      scale: expandBehavior === "overlay" ? 1 : 1,
-      height: expandDirection === "vertical" ? 0 : "auto",
-      width: expandDirection === "horizontal" ? 0 : "auto",
+      scale: expandBehavior === 'overlay' ? 1 : 1,
+      height: expandDirection === 'vertical' ? 0 : 'auto',
+      width: expandDirection === 'horizontal' ? 0 : 'auto',
       opacity: 0,
       transition: {
         duration: transitionDuration,
@@ -73,7 +73,7 @@ export const Expandable = ({
 
   return (
     <motion.div
-      className={cn("relative", className)}
+      className={cn('relative', className)}
       {...props}
       onAnimationStart={handleAnimationStart}
       onAnimationComplete={handleAnimationComplete}

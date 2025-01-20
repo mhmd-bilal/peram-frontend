@@ -13,7 +13,6 @@ export default function Card08({ product, className = '' }) {
     startingPrice = '10.00',
     closingPrice = '15.00',
     badge = { text: 'New', variant: 'orange' },
-    href = '#',
     contextColor = 'yellow'
   } = product
 
@@ -24,8 +23,6 @@ export default function Card08({ product, className = '' }) {
   ) : (
     <ArrowDownRight size={'15'} />
   )
-
-  const [badgeText, setBadgeText] = React.useState(`${closingPrice}`)
 
   return (
     <a href={`/product/`} className={cn('flex flex-col w-[fit] group', className)}>
@@ -72,7 +69,7 @@ export default function Card08({ product, className = '' }) {
                 }
               )}
             >
-              {badgeText}
+              {closingPrice}
               {arrowIcon}
             </span>
           </div>
